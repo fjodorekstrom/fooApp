@@ -1,0 +1,17 @@
+<form class="weather-search">
+  <label>Select your location</label>
+  <input ng-model="location" type="text" />
+  <button type="submit" ng-click="getWeather()">Change location</button>
+</form>
+<br>
+<label>{{location}}</label>
+<br>
+
+<div class="weather" ng-repeat="item in index">
+  <p>{{weatherDesc}}</p><br>
+  <p>{{date}}</p><br>
+  <p>{{tempMaxC}}</p><br>
+  <p>{{tempMinC}}</p><br>
+  <img href={{weatherIconUrl[0].value}} />
+</div>
+                                
