@@ -6,12 +6,14 @@ angular.module('fooApp')
    $scope.weather = null;
   
   $scope.getWeather = function(){
-   $http.get('http://api.worldweatheronline.com/free/v1/weather.ashx?q=Malm%C3%B6&format=json&num_of_days=5&key=td6nvyxejqgcmytufdb3vzem')
+   $http.get('http://api.worldweatheronline.com/free/v1/weather.ashx?q=' + $scope.location + '&format=json&num_of_days=5&key=td6nvyxejqgcmytufdb3vzem')
    .then(function(result){
-     console.log(result.data);
-     var a = result.data.weather;
-     console.log(a);
-     $scope.weather = result.data;
+     var a = result.data;
+     for(var prop in a){
+       console.log(prop); 
+     }
+     console.log(a.data["current_condition"][0]);
+     $scope.weather = a.data["current_condition"][0];
    });
   }
 });

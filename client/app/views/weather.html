@@ -1,3 +1,11 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a ng-href="#">Home</a></li>
+    <li><a ng-href="/weather">Check out your local weather</a></li>
+  </ul>
+  <h3 class="text-muted">client</h3>
+</div>
+<br>
 <form class="weather-search">
   <label>Select your location</label>
   <input ng-model="location" type="text" />
@@ -7,11 +15,15 @@
 <label>{{location}}</label>
 <br>
 
-<div class="weather" ng-repeat="item in index">
-  <p>{{weatherDesc}}</p><br>
-  <p>{{date}}</p><br>
-  <p>{{tempMaxC}}</p><br>
-  <p>{{tempMinC}}</p><br>
-  <img href={{weatherIconUrl[0].value}} />
+<div class="weather">
+  <p>Weather description</p>
+  <p>{{weather.weatherDesc[0].value}}</p><br>
+  <p>Time measured</p>
+  <p>{{weather.observation_time}}</p><br>
+  <p>Temperature</p>
+  <p>{{weather.temp_C}} C</p><br>
+  <p>Windspeed (m/s)</p>
+  <p>{{weather.windspeedKmph}}</p><br>
+  <img href={{weather.weatherIconUrl}} />
 </div>
                                 
